@@ -156,6 +156,47 @@ document.getElementById("btn-exportar").addEventListener("click", function(){
     exportar(filename, texto);
 }, false);
 
+function leerLlave(evt) {
+    matrizLlave[0] = [];
+    matrizLlave[1] = [];
+    matrizLlave[2] = [];
+
+    var f = evt.target.files[0]; 
+    if (f) {
+      var r = new FileReader();
+      r.onload = function(e) { 
+          var contents = e.target.result;
+          //document.write("File Uploaded! <br />" + "name: " + f.name + "<br />" + "content: " + contents + "<br />" + "type: " + f.type + "<br />" + "size: " + f.size + " bytes <br />");
+          console.log('Archivo subido \n Nombre: ' + f.name + '\n Contenido: ' + contents + '\n Tipo: ' + f.type + '\n Tamaño: ' + f.size + ' bytes \n ' );
+          var lines = contents.split("\n"), output = [];
+          let fila=0;
+          console.log('lines', lines.length);
+          for (var i=0; i<lines.length-1; i++){
+            // contenido_encriptado = lines[i];
+            let digitos = lines[i].split(',');
+            console.log('digi ', digitos[0]+', '+digitos[1]+', '+digitos[2]);
+            matrizLlave[fila][0] = parseInt(digitos[0]); matrizLlave[fila][1] = parseInt(digitos[1]); matrizLlave[fila][2] = parseInt(digitos[2]);
+            fila++;
+            // output.push("<tr><td>" + lines[i].split(",").join("</td><td>") + "</td></tr>");
+            console.log('matrizLlave '+ fila, matrizLlave);
+          }
+          output = "<table>" + output.join("") + "</table>";
+          //document.write(output);
+        //   console.log('----');
+        //   console.log(output);
+        //   document.getElementById('msj_encrip').innerHTML = contenido_encriptado.replaceAll('|', '');
+     }
+      r.readAsText(f);
+    //   document.write(output);
+    //  console.warn(output);
+    } else { 
+      alert("Failed to load file");
+    }
+    document.getElementById("llaveinput").value = "";
+  }
+
+  document.getElementById('llaveinput').addEventListener('change', leerLlave);
+
 function leerArchivo(evt) {
     var f = evt.target.files[0]; 
     if (f) {
