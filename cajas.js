@@ -56,7 +56,7 @@ function getFirstLetter(palabra_clave) {
         }
     }
     posiciones[c] = f;
-    console.log('arreglo_pos', posiciones);
+    console.log('posiciones', posiciones);
     // console.log('arreglo_pos', posiciones.sort());
 
     wk = wk.slice(0,posicion) +' '+ wk.slice(posicion+1, wk.length);
@@ -67,12 +67,16 @@ function getFirstLetter(palabra_clave) {
 
 function test() {
     // matriz = new Array();
-    getFirstLetter("SISTEMAS");
+    getFirstLetter("CLASE");
     array_encrip = new Array();
     let palabra_clave = "CLASE";
     let texto = "SEGURIDADYAUDITORIADESISTEMAS";
-    palabra_clave = "SISTEMAS";
+    palabra_clave = "SISTEMA";
     texto = "UNIVERSIDADMARIANOGALVEZ";
+    palabra_clave = "MARIANO";
+    texto = "INGENIERIAENSISTEMAS";
+    palabra_clave = "CLASE";
+    texto = "SEGURIDADYAUDITORIADESISTEMAS";
     let filas = texto.length/palabra_clave.length;
     if (!(filas === parseInt(filas, 10))) {
         filas = Math.trunc(filas)+1;
@@ -94,19 +98,33 @@ function test() {
     console.log(matriz);
     console.log('trans')
     let encriptado = "";
+    let posidx = 0;
     for (j=0; j<palabra_clave.length; j++) {
         console.log(palabra_clave[j])
         for(i=0; i<filas;i++) {
             console.log('matriz ['+i+']['+j+']'+ matriz[i][j]);
-            if (((i+1) % 3) === 0) {
-                encriptado = matriz[i-2][j] + matriz[i-1][j] + matriz[i][j] + ' ';
+            if (((i+1) % filas) === 0) {
+                // encriptado = matriz[i-2][j] + matriz[i-1][j] + matriz[i][j] + ' ';
+                for(k=0; k<filas; k++){
+                    if(matriz[k][j] !== undefined) {
+                        encriptado = encriptado + matriz[k][j];
+                    }
+                }
                 console.log('encriptado', encriptado);
                 console.log('idx', posiciones.indexOf(getLetterValueNumber(palabra_clave[j])));
-                array_encrip[posiciones.indexOf(getLetterValueNumber(palabra_clave[j]))] = encriptado;
+                posidx = posiciones.indexOf(getLetterValueNumber(palabra_clave[j]));
+                array_encrip[posidx] = encriptado;
+                posiciones[posidx] = 0;
+                encriptado = "";
             }
         }
     }
-    console.log(array_encrip);
-    
+    console.log('array_encrip', array_encrip);
+    let texto_encriptado = "";
+    for (i=1; i<array_encrip.length;i++) {
+        texto_encriptado = texto_encriptado + ' ' + array_encrip[i];
+    }
+
+    console.log('texto_encriptado', texto_encriptado);
 }
 
