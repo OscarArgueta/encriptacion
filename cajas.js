@@ -135,3 +135,24 @@ function encriptar() {
     return texto_encriptado;
 }
 
+function exportar(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+document.getElementById("btn-exportar-cajas").addEventListener("click", function(){
+    // var text = document.getElementById("text-val").value;
+    let texto = encriptar();
+    var filename = "archivo-encriptado-cajas.txt";
+    
+    exportar(filename, texto);
+}, false);
+
