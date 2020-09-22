@@ -96,6 +96,7 @@ function encriptar () {
     //document.write('<h4> Inicia encripcion </h4>');
     texto_plano = document.getElementById("entrada").value.toUpperCase();
     let chars = texto_plano.length-(Math.trunc(texto_plano.length / 3)*3);
+    chars = 4;
     console.log('chars', chars);
     console.log('['+texto_plano+']');
     for(i=0;i<chars;i++) {
