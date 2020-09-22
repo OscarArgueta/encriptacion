@@ -65,18 +65,22 @@ function getFirstLetter(palabra_clave) {
     // console.log('sort', posiciones.sort());
 }
 
-function test() {
+function encriptar() {
     // matriz = new Array();
-    getFirstLetter("CLASE");
     array_encrip = new Array();
     let palabra_clave = "CLASE";
+    palabra_clave = document.getElementById("llaveinput").value.toUpperCase();
+    palabra_clave = palabra_clave.replace(/ /g, '');
+    getFirstLetter(palabra_clave);
     let texto = "SEGURIDADYAUDITORIADESISTEMAS";
-    palabra_clave = "SISTEMA";
-    texto = "UNIVERSIDADMARIANOGALVEZ";
-    palabra_clave = "MARIANO";
-    texto = "INGENIERIAENSISTEMAS";
-    palabra_clave = "CLASE";
-    texto = "SEGURIDADYAUDITORIADESISTEMAS";
+    // palabra_clave = "SISTEMA";
+    // texto = "UNIVERSIDADMARIANOGALVEZ";
+    // palabra_clave = "MARIANO";
+    // texto = "INGENIERIAENSISTEMAS";
+    // palabra_clave = "CLASE";
+    // texto = "SEGURIDADYAUDITORIADESISTEMAS";
+    texto = document.getElementById("entrada").value.toUpperCase();
+    texto = texto.replace(/ /g, '');
     let filas = texto.length/palabra_clave.length;
     if (!(filas === parseInt(filas, 10))) {
         filas = Math.trunc(filas)+1;
@@ -99,6 +103,7 @@ function test() {
     console.log('trans')
     let encriptado = "";
     let posidx = 0;
+    /* Hago transposición de la matriz */
     for (j=0; j<palabra_clave.length; j++) {
         console.log(palabra_clave[j])
         for(i=0; i<filas;i++) {
@@ -126,5 +131,7 @@ function test() {
     }
 
     console.log('texto_encriptado', texto_encriptado);
+    document.getElementById("resultado_enc").innerHTML = 'Mensaje encritpado: ' + texto_encriptado;
+    return texto_encriptado;
 }
 

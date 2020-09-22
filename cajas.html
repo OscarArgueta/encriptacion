@@ -5,8 +5,21 @@
 <title>Matriz</title>
 </head>
 <body style="background-color: #959392 ;">
-    <!-- <input type=button onclick="relleno();" value="test"> -->
-    <input type=button onclick="test();" value="test">
+    <h2 style="padding-left: 20px;"> Algoritmo de Cajas</h2>
+    <h3 style="padding-left: 20px;">Agregar Llave</h3>
+    <br/>
+    <div style="padding-left: 20px;">
+        <input type="text" placeholder="Ingrese palabra clave" id="llaveinput" onkeyup="this.value = this.value.toUpperCase();" style="width: 200px; height: 30px;" >
+    </div>
+    <h3 style="padding-left: 20px;">Encripción</h3>
+    <div style="padding: 20px;">
+    <input type="text" placeholder="Ingrese el mensaje a encriptar" id="entrada" onkeyup="this.value = this.value.toUpperCase();" style="width: 400px; height: 30px;">
+    <br/>
+    <div id="resultado_enc" style="padding: 10px">
+        Mensaje encriptado: 
+    </div>
+   <!-- <input type=button onclick="relleno();" value="test"> -->
+    <input type=button onclick="encriptar();" value="Encriptar">
     <input type="button" id="btn-exportar" value="Exportar"/>
     </div>
     <!-- <h3 style="padding-left: 20px;">Desencripción</h3>
