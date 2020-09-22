@@ -5,11 +5,18 @@
 <title>Matriz</title>
 </head>
 <body style="background-color: #959392 ;">
-    <h2 style="padding-left: 20px;"> Algoritmo de Cajas</h2>
+    <h2 style="padding-left: 20px;"> Algoritmo de Matrices</h2>
     <h3 style="padding-left: 20px;">Agregar Llave</h3>
+    <b style="padding-left: 20px;"> El formato que debe contener el archivo de texto para la llave matriz es el siguiente:</b>
+    <br/><br/>
+    <div style="padding-left: 20px;">
+    -2, 1, 1 <br/>
+    -2, -3, 1 </br>
+    3, 1 , -3
+    </div>
     <br/>
     <div style="padding-left: 20px;">
-        <input type="text" placeholder="Ingrese palabra clave" id="llaveinput" onkeyup="this.value = this.value.toUpperCase();" style="width: 200px; height: 30px;" >
+        <input type="file" id="llaveinput" />
     </div>
     <h3 style="padding-left: 20px;">Encripción</h3>
     <div style="padding: 20px;">
@@ -18,11 +25,11 @@
     <div id="resultado_enc" style="padding: 10px">
         Mensaje encriptado: 
     </div>
-   <!-- <input type=button onclick="relleno();" value="test"> -->
+    <!-- <input type=button onclick="relleno();" value="test"> -->
     <input type=button onclick="encriptar();" value="Encriptar">
     <input type="button" id="btn-exportar" value="Exportar"/>
     </div>
-    <!-- <h3 style="padding-left: 20px;">Desencripción</h3>
+    <h3 style="padding-left: 20px;">Desencripción</h3>
     <div style="padding: 20px;">
     <input type="file" id="fileinput" />
     <div id="msj_encrip"  style="padding: 10px;">
@@ -32,18 +39,19 @@
     <input type=button onclick="desencriptar();" value="Desencriptar">
     <div id="resultado_desenc" style="padding: 10px">
         Mensaje desencriptado: 
-    </div> -->
     </div>
     <hr/>
     <div style="display: inline">
-    <form style="display: inline" action="cajas.html">
+    <form style="display: inline" action="matrices.html">
       <input type="submit" value="Limpiar"/>
     </form>
     <form style="display: inline" action="index.html">
       <input type="submit" value="Regresar"/>
     </form>
     </div>
-    <script src="cajas.js"></script>
+</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 

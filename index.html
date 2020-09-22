@@ -2,47 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Matriz</title>
+<title>Encriptación</title>
 </head>
 <body style="background-color: #959392 ;">
-    <h2 style="padding-left: 20px;"> Algoritmo de Matrices</h2>
-    <h3 style="padding-left: 20px;">Agregar Llave</h3>
-    <b style="padding-left: 20px;"> El formato que debe contener el archivo de texto para la llave matriz es el siguiente:</b>
-    <br/><br/>
-    <div style="padding-left: 20px;">
-    -2, 1, 1 <br/>
-    -2, -3, 1 </br>
-    3, 1 , -3
+    <h2 style="padding-left: 20px;"> Algoritmos de Encriptación</h2>
+    <h3 style="padding-left: 20px;">Por favor eliga por que método desea encriptar</h3>
+    <div style="padding: 150px;display: inline">
+      <form style="display: inline" action="matrices.html">
+	<input type="submit" value="Matrices"/>
+      </form>
+      <form style="display: inline" action="cajas.html">
+	<input type="submit" value="Cajas"/>
+      </form>
     </div>
-    <br/>
-    <div style="padding-left: 20px;">
-        <input type="file" id="llaveinput" />
-    </div>
-    <h3 style="padding-left: 20px;">Encripción</h3>
-    <div style="padding: 20px;">
-    <input type="text" placeholder="Ingrese el mensaje a encriptar" id="entrada" onkeyup="this.value = this.value.toUpperCase();" style="width: 400px; height: 30px;">
-    <br/>
-    <div id="resultado_enc" style="padding: 10px">
-        Mensaje encriptado: 
-    </div>
-    <!-- <input type=button onclick="relleno();" value="test"> -->
-    <input type=button onclick="encriptar();" value="Encriptar">
-    <input type="button" id="btn-exportar" value="Exportar"/>
-    </div>
-    <h3 style="padding-left: 20px;">Desencripción</h3>
-    <div style="padding: 20px;">
-    <input type="file" id="fileinput" />
-    <div id="msj_encrip"  style="padding: 10px;">
-        Mensaje encriptado: 
-    </div>
-    <br/>
-    <input type=button onclick="desencriptar();" value="Desencriptar">
-    <div id="resultado_desenc" style="padding: 10px">
-        Mensaje desencriptado: 
-    </div>
-</div>
-
-    <script src="script.js"></script>
 </body>
 </html>
 
